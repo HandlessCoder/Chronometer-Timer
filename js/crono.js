@@ -45,27 +45,28 @@ function addInput(divName,name,limit) {
 function slider() {
     if(running===0){
         if(checkBox.checked){
-        document.getElementById('reloj').style.backgroundImage="url('./img/timer.png')";
-        if(horas === undefined){
-            addInput("cmb-grp","horas",24);
-            addInput("cmb-grp","minutos",60);
-            addInput("cmb-grp","segundos",60);
-            horas = document.getElementById('horas');
-            minutos = document.getElementById('minutos');
-            segundos = document.getElementById('segundos');
-        }else{
-            document.getElementById('cmb-grp').style.display ='grid';
-        }
-        horas.value=String(hh%24);
-        minutos.value=String(mm%60);
-        segundos.value=String(ss%60);
-        contador.style.display = "none";
-    }else{
-        document.getElementById('reloj').style.backgroundImage="url('./img/favicon.png')";
-        
-        contador.style.display = "block";
-        document.getElementById('cmb-grp').style.display ='none';
+            document.getElementById('reloj').style.backgroundImage="url('./img/timer.png')";
+            if(horas === undefined){
+                addInput("cmb-grp","horas",24);
+                addInput("cmb-grp","minutos",60);
+                addInput("cmb-grp","segundos",60);
+                horas = document.getElementById('horas');
+                minutos = document.getElementById('minutos');
+                segundos = document.getElementById('segundos');
+            }else{
+                document.getElementById('cmb-grp').style.display ='grid';
+            }
+            horas.value=String(hh%24);
+            minutos.value=String(mm%60);
+            segundos.value=String(ss%60);
+            contador.style.display = "none";
 
+            document.getElementById('btn-grp').style.paddingTop='5%';
+        }else{
+            document.getElementById('btn-grp').style.paddingTop='0px';
+            document.getElementById('reloj').style.backgroundImage="url('./img/favicon.png')";
+            contador.style.display = "block";
+            document.getElementById('cmb-grp').style.display ='none';
         }
     }else{
         checkBox.checked = !checkBox.checked;
@@ -101,10 +102,12 @@ function pause(params) {
         minutos.value=String(mm%60);
         segundos.value=String(ss%60);
 
-        let au = new Audio("./audio/alarm2.mp3");
-        let playPromise = au.play();
-        au.loop=true;
-        playPromise.then( () => {   alert("Out of time");   au.pause(); });
+        if(hh+mm+ss == 0){
+            let au = new Audio("./audio/alarm2.mp3");
+            let playPromise = au.play();
+            au.loop=true;
+            playPromise.then( () => {   alert("Out of time");   au.pause(); });
+        }
         // au.pause();
 
         // clearInterval(alarma);

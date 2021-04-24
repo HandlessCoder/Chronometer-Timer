@@ -10,32 +10,25 @@
 
 </head>
 <body id="body">
-    <div id="reloj">
-        <div class="max-width">
-            <label class="switch">
-                <input onclick="slider()" type="checkbox" id=switch>
-                <span class="slider round"></span>
-            </label>
+    <div id="body-container">
+        <div id="reloj">
+            <div class="max-width">
+                <label class="switch">
+                    <input onclick="slider()" type="checkbox" id=switch>
+                    <span class="slider round"></span>
+                </label>
             <br>
             <br>
-            <div id="cmb-grp">
-                <!-- <select name="horas" id="horas">
-                    <option value="0">0</option>               
-                </select>
-                <select name="minutos" id="minutos">
-                    
-                </select>
-                <select name="segundos" id="segundos">
-                    
-                </select> -->
-            </div>
+                <div id="cmb-grp">
+                
+                </div>
             <h1 id="counter">00:00:00</h1>
             <br id="aux1" display="none"><br id="aux2" display="none">
-            <!-- <input type="time"> -->
-            <div id="btn-grp">
-                <button class="bg-green" onclick="start()">&#9658</button>
-                <button class="bg-yellow" onclick="pause()">&#8718</button>
-                <button class="bg-red" onclick="stop()">&#8635</button>
+                <div id="btn-grp">
+                    <button class="bg-green" onclick="start()">&#9658</button>
+                    <button class="bg-yellow" onclick="pause()">&#8718</button>
+                    <button class="bg-red" onclick="stop()">&#8635</button>
+                </div>
             </div>
         </div>
     </div>
