@@ -32,9 +32,9 @@ window.onload = function (){
 function addInput(divName,name,limit) {
     var parent = document.getElementById(divName);
     var selectHTML = "";
-    selectHTML=`<select name="${name}" id="${name}">`;
+    selectHTML=`<select name="${name}" id="${name}" title="${name}">`;
     for(let i = 0; i < limit; ++i) {
-        selectHTML += "<option value='" + i + "'>" + i + "</option>";
+        selectHTML += "<option value='" + (i<10?'0'+i:i) + "'>" + (i<10?'0'+i:i) + "</option>";
     }
     selectHTML += "</select>";
     parent.innerHTML += selectHTML;
@@ -56,9 +56,9 @@ function slider() {
             }else{
                 document.getElementById('cmb-grp').style.display ='grid';
             }
-            horas.value=String(hh%24);
-            minutos.value=String(mm%60);
-            segundos.value=String(ss%60);
+            horas.value=((hh%24)<10?'0':'') +String(hh%24);
+            minutos.value=((mm%60)<10?'0':'')+String(mm%60);
+            segundos.value=((ss%60)<10?'0':'')+String(ss%60);
             contador.style.display = "none";
 
             document.getElementById('btn-grp').style.paddingTop='5%';
@@ -79,12 +79,14 @@ function start() {
     // document.getElementById("counter").style.visibility = 'hidden';             SOLAMENTE DESDIBUJA EL ELEMENTO, PERO SIGUE ESTANDO PRESENTE
     if(running===0){
         if(checkBox.checked){
-            if(horas.value==='0' && minutos.value==='0' && segundos.value==='0')return;
+            if(horas.value==='00' && minutos.value==='00' && segundos.value==='00')return;
             ss=Number(horas.value)*3600 + Number(minutos.value) * 60 + Number(segundos.value);
             crono=setInterval(() => timer(), tempo);
             document.getElementById("counter").style.display = "block";
             document.getElementById('cmb-grp').style.display ='none';
-            contador.innerText=`${(horas.value<10?'0':'')+horas.value}:${(minutos.value<10?'0':'')+minutos.value}:${(segundos.value<10?'0':'')+segundos.value}`;
+            document.getElementById('btn-grp').style.paddingTop='0px';
+            contador.innerText=`${horas.value}:${minutos.value}:${segundos.value}`;
+            
         }else{
             crono=setInterval(() => chronometer(), tempo);
         }
@@ -98,9 +100,10 @@ function pause(params) {
     if(running === 1 && checkBox.checked){
         contador.style.display = "none";
         document.getElementById('cmb-grp').style.display ='grid';
-        horas.value=String(hh%24);
-        minutos.value=String(mm%60);
-        segundos.value=String(ss%60);
+        document.getElementById('btn-grp').style.paddingTop='5%';
+        horas.value=((hh%24)<10?'0':'') +String(hh%24);
+        minutos.value=((mm%60)<10?'0':'')+String(mm%60);
+        segundos.value=((ss%60)<10?'0':'')+String(ss%60);
 
         if(hh+mm+ss == 0){
             let au = new Audio("./audio/alarm2.mp3");
