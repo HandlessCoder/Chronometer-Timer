@@ -52,7 +52,7 @@ function addInput(divName,name,limit) {
 function slider() {
     if(running===0){
         if(checkBox.checked){
-            document.getElementById('reloj').style.backgroundImage="url('./img/timer.png')";
+            document.querySelector('.max-width').style.backgroundImage="url('./img/timer.png')";
             if(horas === undefined){
                 addInput("cmb-grp","horas",24);
                 addInput("cmb-grp","minutos",60);
@@ -68,10 +68,10 @@ function slider() {
             segundos.value=((ss%60)<10?'0':'')+String(ss%60);
             contador.style.display = "none";
 
-            document.getElementById('btn-grp').style.paddingTop='5%';
+            document.getElementById('btn-grp').style.marginTop='20%';
         }else{
-            document.getElementById('btn-grp').style.paddingTop='0px';
-            document.getElementById('reloj').style.backgroundImage="url('./img/favicon.png')";
+            document.getElementById('btn-grp').style.marginTop='6.67px';
+            document.querySelector('.max-width').style.backgroundImage="url('./img/chronometer.png')";
             contador.style.display = "block";
             document.getElementById('cmb-grp').style.display ='none';
         }
@@ -91,7 +91,7 @@ function start() {
             crono=setInterval(() => timer(), tempo);
             document.getElementById("counter").style.display = "block";
             document.getElementById('cmb-grp').style.display ='none';
-            document.getElementById('btn-grp').style.paddingTop='0px';
+            document.getElementById('btn-grp').style.marginTop='6.67px';
             contador.innerText=`${horas.value}:${minutos.value}:${segundos.value}`;
             
         }else{
@@ -107,7 +107,7 @@ function pause(params) {
     if(running === 1 && checkBox.checked){
         contador.style.display = "none";
         document.getElementById('cmb-grp').style.display ='grid';
-        document.getElementById('btn-grp').style.paddingTop='5%';
+        document.getElementById('btn-grp').style.marginTop='20%';
         horas.value=((hh%24)<10?'0':'') +String(hh%24);
         minutos.value=((mm%60)<10?'0':'')+String(mm%60);
         segundos.value=((ss%60)<10?'0':'')+String(ss%60);

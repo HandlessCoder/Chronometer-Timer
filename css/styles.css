@@ -42,7 +42,9 @@
   }
 }
 
-
+#counter{
+  margin-left: 2px;
+}
 
 body{
     /* background-image: url('../img/bg16.png'); */
@@ -52,16 +54,16 @@ body{
 }
 #body-container{
   height: 100vh;
+  width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 #reloj{
-    height: 500px;
-    width: 500px;
+    height: 512px;
+    width: 512px;
     /* padding-right: 20px; */
-    background-image: url("../img/favicon.png");
     background-size: 500px;
     background-position-x: 4px;
     background-repeat: no-repeat;
@@ -71,17 +73,21 @@ body{
 }
 
 .max-width{
-    margin-top: 24%;
+    /* margin-top: 24%; */
     /* max-width: 281px; */
-    width: 57%;
-    height: 57%;
-    padding-top: 30px;
+    /* margin-top: 215px ; */
+    width: 512px;
+    height: 512px;
+    padding-top: 205px ;
+    padding-bottom: 225px ;
+    padding-left: 130px ;
+    padding-right: 290px ;  /*430-padding-left*/
+
     box-sizing: border-box;
-    background-color: rgb(100, 157, 154);
-    box-shadow: 0px 0px 10px 1px rgb(67, 136, 73);
+    background-image: url("../img/chronometer.png");
+    /* box-shadow: 0px 0px 10px 1px rgb(67, 136, 73); */
     justify-content: center;
     align-items: center;
-    border-radius: 50%;
 }
 h1{
     font-family: 'Courier New', Courier, monospace;
@@ -106,9 +112,11 @@ button:focus {
     outline:0;
 }
 #btn-grp{
+  margin-top: 0px;
+  margin-left: 8px;
     display: grid;
     grid-template-columns: repeat(3,1fr);
-    gap: 20px;
+    gap: 40px;
     /* margin: 15px 100px; */
 }
 button:hover{
@@ -146,7 +154,7 @@ button:hover{
 
 .switch {
     position: relative;
-    margin-left: 108px;
+    margin-left: 91px;
     display: inline-block;
     width: 60px;
     height: 34px;
@@ -222,8 +230,9 @@ button:hover{
 
 
   #cmb-grp{
-    margin-top: 1%;
+    margin-top: 7%;
+    margin-left: 6px;
     display: grid;
     grid-template-columns: repeat(3,1fr);
-    gap: 0px;
+    gap: 31px;
   }
