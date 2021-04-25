@@ -83,7 +83,7 @@ function slider() {
             contador.style.display = "none";
             document.getElementById('btn-grp').style.marginTop='20%';
         }else{
-            document.getElementById('btn-grp').style.marginTop='6.67px';
+            document.getElementById('btn-grp').style.marginTop='7px';
             document.querySelector('.max-width').style.backgroundImage="url('./img/chronometer.png')";
             contador.style.display = "block";
             document.getElementById('cmb-grp').style.display ='none';
