@@ -3,6 +3,12 @@
   padding: 0;
 }
 
+body{
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
 #contenedor_carga{
   background-color: rgba(250, 240, 245,0.9);
   height: 100%;
@@ -32,11 +38,6 @@
 }
 @keyframes girar{   from{   transform:rotate(0deg); }to{  transform:rotate(360deg); }   }
 
-body{
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
 #body-container{
   height: 100vh;
   width: 100vw;
